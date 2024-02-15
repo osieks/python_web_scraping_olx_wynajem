@@ -44,7 +44,8 @@ while True:
         #if(iterator > 3): break
         
         row = []
-        row.append("=HYPERLINK("+link+", 'LINK')")
+        row.append(iterator)
+        row.append('=HYPERLINK("'+link+'")')
         driver.get(link)
         if 'www.otodom.pl' in link:
             print("otodom")
@@ -76,7 +77,7 @@ while True:
             znaleziono_string = total_count.text
             print(znaleziono_string)
             lista_znaleziono = znaleziono_string.split()
-            #lista_znaleziono[1]="2"
+            #lista_znaleziono[1]="3"
             print( int(lista_znaleziono[1]))
             if int(lista_znaleziono[1])<=iterator:
                 break
@@ -100,7 +101,7 @@ while True:
 
 driver.quit()
 
-df = pd.DataFrame(data, columns=['Link','Title', 'Price', 'Additional Rent', 'Description'])
+df = pd.DataFrame(data, columns=['id','Link','Title', 'Price', 'Additional Rent', 'Description'])
 #df = pd.DataFrame(data, columns=['Link'])
 print("zapisuje")
 df.to_excel('output.xlsx', index=False)

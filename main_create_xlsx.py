@@ -44,7 +44,7 @@ while True:
         #if(iterator > 3): break
         
         row = []
-        row.append("=HYPERLINK({link}, 'LINK')")
+        row.append("=HYPERLINK(",link,", 'LINK')")
         driver.get(link)
         if 'www.otodom.pl' in link:
             print("otodom")
